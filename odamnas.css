@@ -1,26 +1,28 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
 .container {
-    background: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000; /* Heading color set to black */
+}
+
+main {
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 1000px;
-    text-align: center;
-}
-
-h1 {
-    margin-bottom: 20px;
 }
 
 table {
@@ -31,36 +33,52 @@ table {
 
 table, th, td {
     border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #e0e0e0; /* Table header color set to grey */
 }
 
 th, td {
     padding: 12px;
-    text-align: left;
 }
 
-th {
-    background-color: #f2f2f2;
+tfoot th {
+    text-align: right;
 }
 
-button {
-    background-color: #007bff;
+.payment-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.info-section {
+    flex-basis: 48%;
+}
+
+.info-section h2 {
+    color: #000; /* Subheading color set to black */
+    margin-bottom: 10px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+#downloadPdf {
+    background-color: #007BFF;
     color: white;
     border: none;
     padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
-    font-size: 16px;
+    cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
-.footer {
+footer {
+    text-align: center;
     margin-top: 20px;
-}
-
-.footer p {
-    font-size: 14px;
-    color: #777;
+    color: #888;
 }
