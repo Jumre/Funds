@@ -8,6 +8,10 @@ body {
     min-height: 100vh;
     background-color: #f4f4f9;
 }
+ .right-info p,
+        .left-info p {
+            font-family: Courier, monospace;
+        }
 
 .container {
     width: 90%;
@@ -18,8 +22,11 @@ body {
     border-radius: 8px;
 }
 
-h1, h2 {
+h1  {
     text-align: center;
+    color: #333;
+}
+h3{
     color: #333;
 }
 
