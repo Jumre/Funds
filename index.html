@@ -232,12 +232,12 @@
 
                 // Calculate the position for the date at the bottom
                 const dateStr = "Date: " + currentDate.toLocaleDateString(undefined, options);
-                const pageHeight = doc.internal.pageSize.height;
-                const dateYPosition = yOffset + 70; // 20 units from the bottom of the page
+                const pageWidth = doc.internal.pageSize.width;
+                const dateYPosition = yOffset + 70; // 70 units from the bottom of the page
 
                 // Add current date at the bottom
-                doc.setFont("helvetica", "normal");
-                doc.text(dateStr, 20, dateYPosition);
+                doc.setFont("courier", "normal");
+                doc.text(dateStr, pageWidth-60, dateYPosition);
 
                 // Save the PDF
                 doc.save("Monthly_Contribution.pdf");
