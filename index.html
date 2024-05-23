@@ -5,6 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Family Project Contributions</title>
     <link rel="stylesheet" href="odamnas.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            text-align: center;
+            color: black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: grey;
+        }
+
+        .payment-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .info-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px;
+        }
+
+        .info-section h3 {
+            color: black;
+        }
+
+        .info-section p {
+            font-family: Courier, monospace;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #downloadPdf {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            table, th, td {
+                font-size: 12px;
+            }
+            .info-section {
+                flex-basis: 100%;
+                text-align: center;
+            }
+            .container {
+                padding: 10px;
+            }
+            .button-container {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -91,6 +194,55 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
-    <script src="odamnas.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Set the current date
+            const dateElement = document.getElementById("date");
+            const currentDate = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            dateElement.textContent = "Date: " + currentDate.toLocaleDateString(undefined, options);
+
+            // PDF generation
+            document.getElementById("downloadPdf").addEventListener("click", function () {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Add title
+                doc.setFontSize(18);
+                doc.text("Monthly Contribution", 20, 20);
+
+                // Add table
+                const table = document.getElementById("contributionTable");
+                doc.autoTable({ html: table, startY: 30 });
+
+                // Calculate position for additional information
+                const tableHeight = doc.autoTable.previous.finalY;
+                const yOffset = tableHeight + 10;
+
+                // Add balance carried forward and total money in account
+                const balanceInfo = document.querySelector('.right-info').innerText;
+                doc.setFontSize(10);
+                doc.setFont("courier", "normal");
+                doc.text(balanceInfo, 20, yOffset);
+
+                // Add payment information
+                const paymentInfo = document.querySelector('.left-info').innerText;
+                doc.setFont("courier", "normal");
+                doc.text(paymentInfo, 20, yOffset + 30);
+
+                // Calculate the position for the date at the bottom
+                const dateStr = "Date: " + currentDate.toLocaleDateString(undefined, options);
+                const pageHeight = doc.internal.pageSize.height;
+                const dateYPosition = yOffset + 70; // 20 units from the bottom of the page
+
+                // Add current date at the bottom
+                doc.setFont("helvetica", "normal");
+                doc.text(dateStr, 20, dateYPosition);
+
+                // Save the PDF
+                doc.save("Monthly_Contribution.pdf");
+            });
+        });
+    </script>
 </body>
 </html>
