@@ -230,12 +230,12 @@
                 // Add payment information
                 const paymentInfo = document.querySelector('.left-info').innerText;
                 doc.setFont("courier", "normal");
-                doc.text(paymentInfo, 20, yOffset + 30);
+                doc.text(paymentInfo, 25, yOffset + 30);
 
                 // Calculate the position for the date at the bottom
                 const dateStr = "Date: " + currentDate.toLocaleDateString(undefined, options);
                 const pageWidth = doc.internal.pageSize.width;
-                const dateYPosition = yOffset + 70; // 70 units from the bottom of the page
+                const dateYPosition = yOffset + 75; // 70 units from the bottom of the page
 
                 // Add current date at the bottom
                 doc.setFont("courier", "normal");
