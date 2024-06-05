@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Project Transaction Logs</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 100px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+        .table tbody td, .table tbody th {
+            vertical-align: middle;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #6c757d;
+        }
+        .navbar {
+            background-color: #007bff;
+            padding: 15px;
+            box-shadow: 0 4px 6px -6px #222;
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffdd57 !important;
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-toggler-icon {
+            background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg viewBox%3D"0 0 30 30" xmlns%3D"http://www.w3.org/2000/svg"%3E%3Cpath stroke%3D"rgba%28255, 255, 255, 0.55%29" stroke-width%3D"2" stroke-linecap%3D"round" stroke-miterlimit%3D"10" d%3D"M4 7h22M4 15h22M4 23h22"%2F%3E%3C%2Fsvg%3E');
+        }
+        .table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Family Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contributions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Financial Overview</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Transactions.html">Transactions</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center my-4">Family Project Transaction Logs</h2>
+        <div class="table-responsive">
+            <table id="transactionTable" class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Recipient</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>April 28, 2024</td>
+                        <td>Ksh. 1,800</td>
+                        <td>0718763577</td>
+                        <td>First transaction</td>
+                    </tr>
+                    <tr>
+                        <td>May 10, 2024</td>
+                        <td>Ksh. 2,000</td>
+                        <td>0718763577</td>
+                        <td>Upkeep</td>
+                    </tr>
+                    <!-- Additional transactions can be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <p id="date"></p>
+        <p>&copy; 2024 Family Project</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Set the current date
+            const dateElement = document.getElementById("date");
+            const currentDate = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            dateElement.textContent = "Date: " + currentDate.toLocaleDateString(undefined, options);
+        });
+    </script>
+</body>
+</html>
