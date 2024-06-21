@@ -218,6 +218,13 @@
                 doc.setFontSize(10);
                 doc.setFont("courier", "normal");
                 doc.text(leftInfo, 20, yOffset);
+                <a href="transactions.html">click here to see Transactions</a>
+            
+            // Add link to Money out
+                const linkText = "Click here to see transactions";
+                doc.setTextColor(0, 0, 255);
+                doc.textWithLink(linkText, 20, yOffset + 35, { url: 'transactions.html' });
+
 
                 // Add payment information
                 const rightInfo = document.querySelector('.right-info').innerText;
