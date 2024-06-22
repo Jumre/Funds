@@ -163,7 +163,7 @@
             <div class="col-md-6 left-info">
                 <h5>Financial Overview</h5>
                 <p>Balance Carried Forward: Ksh. 29,500</p>
-                <p><a  href="transactions.html">Money out</a></p>
+                <p><a href="transactions.html">Money out</a></p>
                 <p>Total Money in Account: Ksh. 28,157</p>
             </div>
             <div class="col-md-6 right-info">
@@ -218,23 +218,22 @@
                 doc.setFontSize(10);
                 doc.setFont("courier", "normal");
                 doc.text(leftInfo, 20, yOffset);
-                <a href="transactions.html">click here to see Transactions</a>
-            
-            // Add link to Money out
+
+                // Add link to Money out
                 const linkText = "Click here to see transactions";
                 doc.setTextColor(0, 0, 255);
-                doc.textWithLink(linkText, 20, yOffset + 35, { url: 'transactions.html' });
-
+                doc.textWithLink(linkText, 20, yOffset + 35, { url: 'https://jumre.github.io/Funds/transactions.html' });
 
                 // Add payment information
                 const rightInfo = document.querySelector('.right-info').innerText;
                 doc.setFont("courier", "normal");
-                doc.text(rightInfo, 20, yOffset + 40);
+                doc.setTextColor(0, 0, 0);
+                doc.text(rightInfo, 20, yOffset + 45);
 
                 // Add current date at the bottom
                 const dateStr = "Date: " + currentDate.toLocaleDateString(undefined, options);
                 const pageWidth = doc.internal.pageSize.width;
-                const dateYPosition = yOffset + 70; // 70 units from the bottom of the page
+                const dateYPosition = yOffset + 75; // 70 units from the bottom of the page
                 doc.setFont("courier", "normal");
                 doc.text(dateStr, pageWidth - 60, dateYPosition);
 
