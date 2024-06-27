@@ -1,246 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Project Members Contribution</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 100px;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .table thead th {
-            vertical-align: bottom;
-            border-bottom: 2px solid #dee2e6;
-        }
-        .table tbody td, .table tbody th {
-            vertical-align: middle;
-        }
-        .text-bold {
-            font-weight: bold;
-        }
-        footer {
-            margin-top: 20px;
-            text-align: center;
-            color: #6c757d;
-        }
-        .btn-download {
-            background-color: #007bff;
-            color: #fff;
-        }
-        .btn-download:hover {
-            background-color: #0056b3;
-        }
-        .navbar {
-            background-color: #007bff;
-            padding: 15px;
-            box-shadow: 0 4px 6px -6px #222;
-        }
-        .navbar-brand {
-            color: #fff !important;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .navbar-nav .nav-link {
-            color: #fff !important;
-            margin-right: 15px;
-            transition: color 0.3s;
-        }
-        .navbar-nav .nav-link:hover {
-            color: #ffdd57 !important;
-        }
-        .navbar-toggler {
-            border: none;
-        }
-        .navbar-toggler-icon {
-            background-image: url('data:image/svg+xml;charset=UTF8,%3Csvg viewBox%3D"0 0 30 30" xmlns%3D"http://www.w3.org/2000/svg"%3E%3Cpath stroke%3D"rgba%28255, 255, 255, 0.55%29" stroke-width%3D"2" stroke-linecap%3D"round" stroke-miterlimit%3D"10" d%3D"M4 7h22M4 15h22M4 23h22"%2F%3E%3C%2Fsvg%3E');
-        }
-        .left-info, .right-info {
-            background-color: #f1f1f1;
-            padding: 15px;
-            border-radius: 8px;
-        }
-        .table tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
-        }
-        .table tbody tr:nth-child(even) {
-            background-color: #e9ecef;
-        }
-    </style>
+  <title>Project Contributions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Custom CSS */
+    .portfolio-item {
+      margin-bottom: 20px;
+    }
+    .table-responsive {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; /* for smooth scrolling on touch devices */
+    }
+    .table thead th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+    }
+    .table tbody td, .table tbody th {
+      vertical-align: middle;
+    }
+    .text-bold {
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #6c757d;
+    }
+    .btn-download {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .btn-download:hover {
+      background-color: #0056b3;
+    }
+    .left-info, .right-info {
+      background-color: #f1f1f1;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .table tbody tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+    .table tbody tr:nth-child(even) {
+      background-color: #e9ecef;
+    }
+    /* Fixed Sidebar */
+    .navbar-fixed-left {
+      position: fixed;
+      width: 220px;
+      height: 100%;
+      border-right: 1px solid #ddd;
+      background-color: #f8f9fa;
+    }
+    .content-with-fixed-sidebar {
+      margin-left: 240px;
+    }
+    /* Media queries for responsiveness */
+    @media (max-width: 767px) {
+      .navbar-fixed-left {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+      }
+      .content-with-fixed-sidebar {
+        margin-left: 0;
+      }
+      .left-info, .right-info {
+        margin-top: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">Family Project</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contributions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Financial Overview</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="transactions.html">Transactions</a>
-                </li>
-            </ul>
-        </div>
+
+<!-- Portfolio Header -->
+<div class="container-fluid bg-primary text-white text-center py-5">
+  <h1>Family Projects</h1>
+  <p>Explore the projects and accomplishments</p>
+</div>
+
+<!-- Portfolio Content -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 navbar-fixed-left">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="#section2">Upcoming Projects</a></li>
+        <li><a href="transactions.html">Transactions</a></li>
+        <li><a href="#section4">Accomplished</a></li>
+        <li><a href="#section5">Contacts</a></li>
+      </ul>
     </nav>
 
-    <div class="container">
-        <h2 class="text-center my-4">Members Contribution</h2>
-        <div class="table-responsive">
+    <!-- Main Content -->
+    <div class="col-md-9 content-with-fixed-sidebar">
+      <!-- About Me Section -->
+      <section id="section1" class="portfolio-item">
+        <div class="container">
+          <h2 class="text-center my-4">Members Contribution</h2>
+          <div class="table-responsive">
             <table id="contributionTable" class="table table-bordered">
-                <thead class="thead-light">
-                    <tr>
-                        <th>Member</th>
-                        <th>May 2024</th>
-                        <th>June 2024</th>
-                        <th>July 2024</th>
-                        <th>August 2024</th>
-                        <th>September 2024</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Steve & Anne</td>
-                        <td>---</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Shem & Mercy</td>
-                        <td>Ksh. 10,000</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Summer</td>
-                        <td>Ksh. 6,000</td>
-                        <td>Ksh. 6,000</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Peter</td>
-                        <td>Ksh. 7,000</td>
-                        <td>Ksh. 3,000</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="text-bold">
-                        <td>Total</td>
-                        <td>Ksh. 23,000</td>
-                        <td>Ksh. 9,000</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
+              <thead class="thead-light">
+                <tr>
+                  <th>Member</th>
+                  <th>May 2024</th>
+                  <th>June 2024</th>
+                  <th>July 2024</th>
+                  <th>August 2024</th>
+                  <th>September 2024</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Steve & Anne</td>
+                  <td>---</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Shem & Mercy</td>
+                  <td>Ksh. 10,000</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Summer</td>
+                  <td>Ksh. 6,000</td>
+                  <td>Ksh. 6,000</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Peter</td>
+                  <td>Ksh. 7,000</td>
+                  <td>Ksh. 3,000</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr class="text-bold">
+                  <td>Total</td>
+                  <td>Ksh. 23,000</td>
+                  <td>9,000</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
             </table>
-        </div>
-
-        <div class="row mt-4">
+          </div>
+          <div class="row mt-4">
             <div class="col-md-6 left-info">
-                <h5>Financial Overview</h5>
-                <p>Balance Carried Forward: Ksh. 29,500</p>
-                <p><a href="transactions.html">Money out</a></p>
-                <p>Total Money in Account: Ksh. 32,130</p>
+              <h5>Financial Overview</h5>
+              <p>Balance Carried Forward: Ksh. 29,500</p>
+              <p><a href="transactions.html">Money out</a></p>
+              <p>Total Money in Account: Ksh. 32,130</p>
             </div>
             <div class="col-md-6 right-info">
-                <h5>Payment Information:</h5>
-                <p>Safaricom Mpesa</p>
-                <p>Paybill: 247247</p>
-                <p>Account: 0746213923</p>
+              <h5>Payment Information:</h5>
+              <p>Safaricom Mpesa</p>
+              <p>Paybill: 247247</p>
+              <p>Account: 0746213923</p>
             </div>
-        </div>
-
-        <div class="text-center mt-4">
+          </div>
+          <div class="text-center mt-4">
             <button id="downloadPDF" class="btn btn-download">Download as PDF</button>
+          </div>
         </div>
+      </section>
     </div>
-    <footer>
-        <p id="date"></p>
-        <p>&copy; 2024 Family Project</p>
-    </footer>
+  </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Set the current date
-            const dateElement = document.getElementById("date");
-            const currentDate = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            dateElement.textContent = "Date: " + currentDate.toLocaleDateString(undefined, options);
+<!-- Footer -->
+<footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+  <p id="date"></p>
+  <p>&copy; 2024 Family Project. All rights reserved.</p>
+</footer>
 
-            // PDF generation
-            document.getElementById("downloadPDF").addEventListener("click", function () {
-                const { jsPDF } = window.jspdf;
-                const doc = new jsPDF();
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
 
-                // Add title
-                doc.setFontSize(18);
-                doc.text("Family Project Members Contribution", 20, 20);
+<!-- Custom Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Set the current date
+    const dateElement = document.getElementById("date");
+    const currentDate = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    dateElement.textContent = "Date: " + currentDate.toLocaleDateString(undefined, options);
 
-                // Add table
-                const table = document.getElementById("contributionTable");
-                doc.autoTable({ html: table, startY: 30 });
+    // PDF generation
+    document.getElementById("downloadPDF").addEventListener("click", function () {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
 
-                // Calculate position for additional information
-                const tableHeight = doc.autoTable.previous.finalY;
-                const yOffset = tableHeight + 10;
+      // Add title
+      doc.setFontSize(18);
+      doc.text("Family Project Members Contribution", 20, 20);
 
-                // Add balance carried forward and total money in account
-                const leftInfo = document.querySelector('.left-info').innerText;
-                doc.setFontSize(10);
-                doc.setFont("courier", "normal");
-                doc.text(leftInfo, 20, yOffset);
+      // Add table
+      const table = document.getElementById("contributionTable");
+      doc.autoTable({ html: table, startY: 30 });
 
-                // Add link to Money out
-                const linkText = "Click here to see transactions";
-                doc.setTextColor(0, 0, 255);
-                doc.textWithLink(linkText, 20, yOffset + 35, { url: 'https://jumre.github.io/Funds/transactions.html' });
+      // Calculate position for additional information
+      const tableHeight = doc.autoTable.previous.finalY;
+      const yOffset = tableHeight + 10;
 
-                // Add payment information
-                const rightInfo = document.querySelector('.right-info').innerText;
-                doc.setFont("courier", "normal");
-                doc.setTextColor(0, 0, 0);
-                doc.text(rightInfo, 20, yOffset + 45);
+      // Add balance carried forward and total money in account
+      const leftInfo = document.querySelector('.left-info').innerText;
+      doc.setFontSize(10);
+      doc.setFont("courier", "normal");
+      doc.text(leftInfo, 20, yOffset);
 
-                // Add current date at the bottom
-                const dateStr = "Date: " + currentDate.toLocaleDateString(undefined, options);
-                const pageWidth = doc.internal.pageSize.width;
-                const dateYPosition = yOffset + 75; // 70 units from the bottom of the page
-                doc.setFont("courier", "normal");
-                doc.text(dateStr, pageWidth - 60, dateYPosition);
+      // Add link to Money out
+      const linkText = "Click here to see transactions";
+      doc.setTextColor(0, 0, 255);
+      doc.textWithLink(linkText, 20, yOffset + 35, { url: 'https://jumre.github.io/Funds/transactions.html' });
 
-                // Save the PDF
-                doc.save("Family_Project_Contribution.pdf");
-            });
-        });
-    </script>
+      // Add payment information
+      const rightInfo = document.querySelector('.right-info').innerText;
+      doc.setFont("courier", "normal");
+      doc.setTextColor(0, 0, 0);
+      doc.text(rightInfo, 20, yOffset + 45);
+
+      // Add current date at the bottom
+      const dateStr = "Date: " + currentDate.toLocaleDateString(undefined, options);
+      const pageWidth = doc.internal.pageSize.width;
+      const dateYPosition = yOffset + 75; // 70 units from the bottom of the page
+      doc.setFont("courier", "normal");
+      doc.text(dateStr, pageWidth - 60, dateYPosition);
+
+      // Save the PDF
+      doc.save("Project_Contribution.pdf");
+    });
+  });
+</script>
+
 </body>
 </html>
