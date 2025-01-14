@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Transactions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Custom CSS */
+    .portfolio-item {
+      margin-bottom: 20px;
+    }
+    .table-responsive {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; /* for smooth scrolling on touch devices */
+    }
+    .table thead th {
+      vertical-align: bottom;
+      border-bottom: 2px solid #dee2e6;
+    }
+    .table tbody td, .table tbody th {
+      vertical-align: middle;
+    }
+    .text-bold {
+      font-weight: bold;
+    }
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #6c757d;
+    }
+    .btn-download {
+      background-color: #007bff;
+      color: #fff;
+    }
+    .btn-download:hover {
+      background-color: #0056b3;
+    }
+    .left-info, .right-info {
+      background-color: #f1f1f1;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .table tbody tr:nth-child(odd) {
+      background-color: #f9f9f9;
+    }
+    .table tbody tr:nth-child(even) {
+      background-color: #e9ecef;
+    }
+    /* Fixed Sidebar */
+    .navbar-fixed-left {
+      position: fixed;
+      width: 220px;
+      height: 100%;
+      border-right: 1px solid #ddd;
+      background-color: #f8f9fa;
+    }
+    .content-with-fixed-sidebar {
+      margin-left: 240px;
+    }
+    /* Media queries for responsiveness */
+    @media (max-width: 767px) {
+      .navbar-fixed-left {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+      }
+      .content-with-fixed-sidebar {
+        margin-left: 0;
+      }
+      .left-info, .right-info {
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Portfolio Header -->
+<div class="container-fluid bg-primary text-white text-center py-5">
+  <h1>Family Projects</h1>
+  <p>Explore the projects and accomplishments</p>
+</div>
+
+<!-- Portfolio Content -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-3 navbar-fixed-left">
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="index.html">2024</a></li>
+        <li><a href="index2025.html">2025</a></li>
+        <li ><a href="transactions.html">Transactions_2024</a></li>
+        <li class="active"><a href="Transactions_2025.html">Transactions_2025</a></li>
+        <li><a href="#section5">Contacts</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="col-md-9 content-with-fixed-sidebar">
+      <section id="transactions" class="portfolio-item">
+        <div class="container">
+          <h2 class="text-center my-4">Transaction Logs</h2>
+          <div class="table-responsive">
+            <table id="transactionTable" class="table table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Recipient</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+                <tr>
+                  <td>----</td>
+                  <td>Ksh. 100</td>
+                  <td>Transaction costs</td>
+                  <td>----</td>
+                </tr>
+                 <tr>
+                  <td>Jan 7 2025</td>
+                  <td>Ksh.2,000 </td>
+                  <td> Mum</td>
+                  <td> Upkeek</td>
+              </tr>
+              <tr>
+                  <td>Jan 14 2025</td>
+                  <td>Ksh.2,000 </td>
+                  <td> Mum</td>
+                  <td> Upkeek</td>
+              </tr>
+                <tr>
+              
+                  <td>Total</td>
+                  <td>Ksh. 4,100</td>
+                  <td>-------</td>
+                  <td>------</td>
+                </tr>
+                <!-- Additional transactions can be added here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer style="background-color: #333; color: white; padding: 20px; text-align: center;">
+  <p id="date"></p>
+  <p>&copy; 2024 Family Project. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
+
+<!-- Custom Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Set the current date
+    const dateElement = document.getElementById("date");
+    const currentDate = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    dateElement.textContent = "Date: " + currentDate.toLocaleDateString(undefined, options);
+
+    // PDF generation
+    document.getElementById("downloadPDF").addEventListener("click", function () {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      // Add title
+      doc.setFontSize(18);
+      doc.text("Family Project Members Contribution", 20, 20);
+
+      // Add table
+      const table = document.getElementById("transactionTable");
+      doc.autoTable({ html: table, startY: 30 });
+
+      // Calculate position for additional information
+      const tableHeight = doc.autoTable.previous.finalY;
+      const yOffset = tableHeight + 10;
+
+      // Add balance carried forward and total money in account
+      const leftInfo = document.querySelector('.left-info').innerText;
+      doc.setFontSize(10);
+      doc.setFont("courier", "normal");
+      doc.text(leftInfo, 20, yOffset);
+
+      // Add link to Money out
+      const linkText = "Click here to see transactions";
+      doc.setTextColor(0, 0, 255);
+      doc.textWithLink(linkText, 20, yOffset + 35, { url: 'https://jumre.github.io/Funds/transactions.html' });
+
+      // Add payment information
+      const rightInfo = document.querySelector('.right-info').innerText;
+      doc.setFont("courier", "normal");
+      doc.setTextColor(0, 0, 0);
+      doc.text(rightInfo, 20, yOffset + 45);
+
+      // Add current date at the bottom
+      const dateStr = "Date: " + currentDate.toLocaleDateString(undefined, options);
+      const pageWidth = doc.internal.pageSize.width;
+      const dateYPosition = yOffset + 75; // 70 units from the bottom of the page
+      doc.setFont("courier", "normal");
+      doc.text(dateStr, pageWidth - 60, dateYPosition);
+
+      // Save the PDF
+      doc.save("Project_Contribution.pdf");
+    });
+  });
+</script>
+
+</body>
+</html>
